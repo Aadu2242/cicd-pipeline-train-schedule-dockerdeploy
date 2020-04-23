@@ -34,12 +34,12 @@ pipeline {
                 }
             }
         }
-        stage('DeployToProduction') {
+        stage('DeployToDevlopmentEnv') {
             when {
                 branch 'master'
             }
             steps {
-                input 'Deploy to Production?'
+                input 'Deploy to Dev Env?'
                 milestone(1)
                 withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
                     script {
