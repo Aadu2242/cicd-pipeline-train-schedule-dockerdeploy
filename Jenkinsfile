@@ -54,6 +54,18 @@ pipeline {
                     }
                 }
             }
+            stage('Deploy to Production') {
+             when {
+                branch 'master'
+                }
+            steps {
+                input 'Deploy to Dev Env?'
+                milestone(1)
+                 echo 'Deploy to Production'
+                    }
+               }
+         
+        }
         }
     }
 }
